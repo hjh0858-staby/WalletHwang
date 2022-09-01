@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2309F7B28BF2F33000EFAAA /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2309F7A28BF2F33000EFAAA /* WalletConnect.swift */; };
+		D2309F7D28BF422A000EFAAA /* HandShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2309F7C28BF422A000EFAAA /* HandShakeView.swift */; };
 		D26E75F828BEE55100B44465 /* WalletHwangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E75F728BEE55100B44465 /* WalletHwangApp.swift */; };
 		D26E75FA28BEE55100B44465 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E75F928BEE55100B44465 /* ContentView.swift */; };
 		D26E75FC28BEE55300B44465 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26E75FB28BEE55300B44465 /* Assets.xcassets */; };
@@ -14,6 +16,7 @@
 		D26E760928BEE55400B44465 /* WalletHwangTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E760828BEE55400B44465 /* WalletHwangTests.swift */; };
 		D26E761328BEE55400B44465 /* WalletHwangUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E761228BEE55400B44465 /* WalletHwangUITests.swift */; };
 		D26E761528BEE55400B44465 /* WalletHwangUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E761428BEE55400B44465 /* WalletHwangUITestsLaunchTests.swift */; };
+		D26E762328BEE59700B44465 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D26E762228BEE59700B44465 /* WalletConnectSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2309F7A28BF2F33000EFAAA /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
+		D2309F7C28BF422A000EFAAA /* HandShakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandShakeView.swift; sourceTree = "<group>"; };
 		D26E75F428BEE55100B44465 /* WalletHwang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletHwang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26E75F728BEE55100B44465 /* WalletHwangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHwangApp.swift; sourceTree = "<group>"; };
 		D26E75F928BEE55100B44465 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26E762328BEE59700B44465 /* WalletConnectSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				D26E75F728BEE55100B44465 /* WalletHwangApp.swift */,
+				D2309F7A28BF2F33000EFAAA /* WalletConnect.swift */,
 				D26E75F928BEE55100B44465 /* ContentView.swift */,
+				D2309F7C28BF422A000EFAAA /* HandShakeView.swift */,
 				D26E75FB28BEE55300B44465 /* Assets.xcassets */,
 				D26E75FD28BEE55300B44465 /* Preview Content */,
 			);
@@ -143,6 +151,9 @@
 			dependencies = (
 			);
 			name = WalletHwang;
+			packageProductDependencies = (
+				D26E762228BEE59700B44465 /* WalletConnectSwift */,
+			);
 			productName = WalletHwang;
 			productReference = D26E75F428BEE55100B44465 /* WalletHwang.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +226,9 @@
 				Base,
 			);
 			mainGroup = D26E75EB28BEE55100B44465;
+			packageReferences = (
+				D26E762128BEE59700B44465 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
+			);
 			productRefGroup = D26E75F528BEE55100B44465 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2309F7D28BF422A000EFAAA /* HandShakeView.swift in Sources */,
 				D26E75FA28BEE55100B44465 /* ContentView.swift in Sources */,
 				D26E75F828BEE55100B44465 /* WalletHwangApp.swift in Sources */,
+				D2309F7B28BF2F33000EFAAA /* WalletConnect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +599,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D26E762128BEE59700B44465 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D26E762228BEE59700B44465 /* WalletConnectSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26E762128BEE59700B44465 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			productName = WalletConnectSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D26E75EC28BEE55100B44465 /* Project object */;
 }

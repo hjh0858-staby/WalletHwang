@@ -8,14 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var handShakeView: HandShakeView!
+    var walletConnect: WalletConnect!
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        contentView
     }
-}
+    
+    
+    var contentView: some View {
+        NavigationView {
+            VStack(spacing: 10) {
+                Spacer()
+                
+                Button {
+                    // 연결
+                    self.connect()
+                } label: {
+                    Text("눌러보세요오옹")
+                        .foregroundColor(.white)
+                        .padding(10)
+                }
+                .background(.blue)
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+                
+                Spacer()
+            }.background(.green.opacity(0.4))
+        }
+    }
+    
+    func connect() {
+        let connectionUrl = walletConnect.connect()
+        print("connectionUrl = \(connectionUrl)")
+        
+        let deepLinkUrl = "wc://wc?uri=\(connectionUrl)"
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if let url = URL(string: deepLinkUrl), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+
+            }
+        }
     }
 }
