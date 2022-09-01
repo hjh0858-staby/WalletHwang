@@ -38,6 +38,7 @@ struct ContentView: View {
         }
     }
     
+    /// 연결
     func connect() {
         let connectionUrl = walletConnect.connect()
         print("connectionUrl = \(connectionUrl)")

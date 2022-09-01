@@ -16,7 +16,6 @@ protocol WalletConnectDelegate {
 }
 
 class WalletConnect {
-    
     var client: Client!
     var session: Session!
     var delegate: WalletConnectDelegate
