@@ -26,7 +26,7 @@ struct ContentView: View {
                     // 연결
                     self.connect()
                 } label: {
-                    Text("눌러보세요오옹")
+                    Text("눌러보세요오오오오옹")
                         .foregroundColor(.white)
                         .padding(10)
                 }
