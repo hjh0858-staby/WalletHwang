@@ -8,20 +8,24 @@
 import SwiftUI
 import WalletConnectSwift
 
-
+/// 대리자 프로토콜
 protocol WalletConnectDelegate {
+    /// 연결 실패
     func failedToConnect()
+    /// 연결 되었다
     func didConnect()
+    /// 연결 끊겼다
     func didDisconnect()
 }
 
-class WalletConnect {
+class WalletConnect: ObservableObject {
     var client: Client!
     var session: Session!
     var delegate: WalletConnectDelegate
     
     let sessionKey: String = "sessionKey"
     
+    // MARK: - init
     init(delegate: WalletConnectDelegate) {
         self.delegate = delegate
     }
@@ -39,6 +43,14 @@ extension WalletConnect {
         
         try! client.connect(to: wcUrl)
         return wcUrl.absoluteString
+    }
+    
+    /// 재연결
+    func reconnectIfNeeded() {
+        if let oldSessionObject = UserDefaults.standard.object(forKey: sessionKey) as? Data, let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
+            client = Client(delegate: self, dAppInfo: session.dAppInfo)
+            try? client.reconnect(to: session)
+        }
     }
     
     /// 랜덤키 생성
