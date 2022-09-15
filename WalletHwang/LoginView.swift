@@ -12,39 +12,54 @@ import WalletConnectSwift
 /// 로그인 뷰
 struct LoginView: View {
     /// 메타마스크 연결
-    @StateObject var walletConnect: WalletConnect
-    
-    var delegate: WalletConnectDelegate
+//    var walletConnect: WalletConnect
     
     // MARK: - 화면 관련
     var handShakeView: HandShakeView!
     /// 메인화면
     var mainView: MainView!
     
-    /// 화면 전환
-    @State var isPresent: Bool = false
-    /// 코드
-    @State var code: String = "" {
+    @StateObject var viewModel: LoginVM
+    
+    @State var isPresent: Bool = false {
         didSet {
-            print("didSet - code = \(code)")
+            print("LoginView - isPresent = \(isPresent)")
+        }
+    }
+    
+    @State var navToMain: Bool = false {
+        didSet {
+            print("LoginView - navToMain = \(navToMain)")
         }
     }
     
     // MARK: - init
     init() {
-        self._walletConnect = StateObject.init(wrappedValue: WalletConnect(delegate: <#T##WalletConnectDelegate#>))
+        self._viewModel = StateObject(wrappedValue: LoginVM())
     }
     
     
     // MARK: - body
     var body: some View {
         contentView
-            .sheet(isPresented: $isPresent) {
-                HandShakeView(code: code)
+            .sheet(isPresented: self.$isPresent) {
+                HandShakeView(code: self.viewModel.code)
             }
+            .sheet(isPresented: self.$navToMain, content: {
+                MainView()
+            })
             .onAppear() {
                 // 재연결
-                self.walletConnect.reconnectIfNeeded()
+                self.viewModel.walletConnect.reconnectIfNeeded()
+            }
+            // QR코드 화면 이동 이벤트 받음
+            .onReceive(self.viewModel.$isPresent) { flag in
+                self.isPresent = flag
+            }
+            // 메인화면 이동 이벤트 받음
+            .onReceive(self.viewModel.navToMainView) { flag in
+                print("onReceive - flag = \(flag)")
+                self.navToMain = flag
             }
     }
     
@@ -56,7 +71,7 @@ struct LoginView: View {
                 
                 Button {
                     // 연결
-                    self.connect()
+                    self.viewModel.connect()
                 } label: {
                     Text("눌러보세욥")
                         .foregroundColor(.white)
@@ -69,25 +84,7 @@ struct LoginView: View {
         }
     }
     
-    /// 연결
-    func connect() {
-        let connectionUrl = walletConnect.connect()
-        print("connectionUrl = \(connectionUrl)")
-        
-        let deepLinkUrl = "wc://wc?uri=\(connectionUrl)"
-        print("deepLinkUrl = \(deepLinkUrl)")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.code = connectionUrl
-            if let url = URL(string: deepLinkUrl), UIApplication.shared.canOpenURL(url) {
-                print("url = \(url)")
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                print("url 없음")
-                self.isPresent = true
-            }
-        }
-    }
+
     
     func onMainThread(_ closure: @escaping () -> Void) {
         if Thread.isMainThread {
@@ -97,19 +94,5 @@ struct LoginView: View {
                 closure()
             }
         }
-    }
-}
-
-extension LoginView: WalletConnectDelegate {
-    func failedToConnect() {
-        print("failedToConnect")
-    }
-    
-    func didConnect() {
-        print("didConnect")
-    }
-    
-    func didDisconnect() {
-        print("didDisconnect")
     }
 }

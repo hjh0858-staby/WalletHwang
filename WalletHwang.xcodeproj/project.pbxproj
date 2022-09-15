@@ -17,6 +17,7 @@
 		D26E761328BEE55400B44465 /* WalletHwangUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E761228BEE55400B44465 /* WalletHwangUITests.swift */; };
 		D26E761528BEE55400B44465 /* WalletHwangUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E761428BEE55400B44465 /* WalletHwangUITestsLaunchTests.swift */; };
 		D26E762328BEE59700B44465 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D26E762228BEE59700B44465 /* WalletConnectSwift */; };
+		D282B57A28D30E1700DA3A97 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D282B57928D30E1700DA3A97 /* LoginVM.swift */; };
 		D289F64028C5C65800964C61 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D289F63F28C5C65800964C61 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		D26E760E28BEE55400B44465 /* WalletHwangUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalletHwangUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26E761228BEE55400B44465 /* WalletHwangUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHwangUITests.swift; sourceTree = "<group>"; };
 		D26E761428BEE55400B44465 /* WalletHwangUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHwangUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D282B57928D30E1700DA3A97 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		D289F63F28C5C65800964C61 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D289F64128C5D44800964C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 				D289F64128C5D44800964C61 /* Info.plist */,
 				D26E75F728BEE55100B44465 /* WalletHwangApp.swift */,
 				D26E75F928BEE55100B44465 /* LoginView.swift */,
+				D282B57928D30E1700DA3A97 /* LoginVM.swift */,
 				D2309F7A28BF2F33000EFAAA /* WalletConnect.swift */,
 				D2309F7C28BF422A000EFAAA /* HandShakeView.swift */,
 				D289F63F28C5C65800964C61 /* MainView.swift */,
@@ -278,6 +281,7 @@
 			files = (
 				D2309F7D28BF422A000EFAAA /* HandShakeView.swift in Sources */,
 				D26E75FA28BEE55100B44465 /* LoginView.swift in Sources */,
+				D282B57A28D30E1700DA3A97 /* LoginVM.swift in Sources */,
 				D26E75F828BEE55100B44465 /* WalletHwangApp.swift in Sources */,
 				D289F64028C5C65800964C61 /* MainView.swift in Sources */,
 				D2309F7B28BF2F33000EFAAA /* WalletConnect.swift in Sources */,

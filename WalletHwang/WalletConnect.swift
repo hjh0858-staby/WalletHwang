@@ -8,7 +8,7 @@
 import SwiftUI
 import WalletConnectSwift
 
-/// 대리자 프로토콜
+/// 프로토콜
 protocol WalletConnectDelegate {
     /// 연결 실패
     func failedToConnect()
@@ -18,7 +18,7 @@ protocol WalletConnectDelegate {
     func didDisconnect()
 }
 
-class WalletConnect: ObservableObject {
+class WalletConnect {
     var client: Client!
     var session: Session!
     var delegate: WalletConnectDelegate
