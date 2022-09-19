@@ -35,6 +35,7 @@ class WalletConnect {
 extension WalletConnect {
     /// 연결
     func connect() -> String {
+        print("connect()")
         let wcUrl = WCURL(topic: UUID().uuidString, bridgeURL: URL(string: "https://safe-walletconnect.gnosis.io/")!, key: try! randomKey())
         let clientMeta = Session.ClientMeta(name: "ExampleDApp", description: "WalletConnectSwift", icons: [], url: URL(string: "https://safe.gnosis.io")!)
         let dAppInfo = Session.DAppInfo(peerId: UUID().uuidString, peerMeta: clientMeta)
@@ -47,10 +48,22 @@ extension WalletConnect {
     
     /// 재연결
     func reconnectIfNeeded() {
+        print("reconnectIfNeeded()")
         if let oldSessionObject = UserDefaults.standard.object(forKey: sessionKey) as? Data, let session = try? JSONDecoder().decode(Session.self, from: oldSessionObject) {
             client = Client(delegate: self, dAppInfo: session.dAppInfo)
             try? client.reconnect(to: session)
         }
+    }
+    
+    /// 연결 해제
+    func disConnect() {
+        print("walletConnect - disConnect()")
+        guard let session = session else {
+            print("walletConnect - disConnect() - session 없음")
+            return
+        }
+        UserDefaults.standard.removeObject(forKey: "userInfo")
+        try? client.disconnect(from: session)
     }
     
     /// 랜덤키 생성

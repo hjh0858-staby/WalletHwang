@@ -7,16 +7,13 @@
 
 import SwiftUI
 import CoreImage.CIFilterBuiltins
+import AVFoundation
+
 
 /// QR코드 로그인 뷰
 struct HandShakeView: View {
-    
-    /// 화면 전환 여부 바인딩 값
-//    @Binding var isPresented: Bool
-    
     /// 코드
     var code: String!
-    
     
     // MARK: - init
     init(code: String) {
@@ -34,9 +31,29 @@ struct HandShakeView: View {
         VStack(spacing: 0) {
             Spacer()
             
-            Text("code = \(code)")
+            Image(uiImage: makeQrCode(code: code))
+            
+            Button {
+                print("QRCode - code = \(code)")
+            } label: {
+                Text("코드 값은?")
+            }
+
             
             Spacer()
         }
+    }
+    
+    func makeQrCode(code: String) -> UIImage {
+        let data = Data(code.utf8)
+        let context = CIContext()
+        let filter = CIFilter.qrCodeGenerator()
+        filter.setValue(data, forKey: "inputMessage")
+        
+        let outputImage = filter.outputImage!
+        let scaledImage = outputImage.transformed(by: CGAffineTransform(scaleX: 4, y: 4))
+        let cgImage = context.createCGImage(scaledImage, from: scaledImage.extent)!
+        
+        return UIImage(cgImage: cgImage)
     }
 }
