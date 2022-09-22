@@ -19,6 +19,7 @@
 		D26E762328BEE59700B44465 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D26E762228BEE59700B44465 /* WalletConnectSwift */; };
 		D282B57A28D30E1700DA3A97 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D282B57928D30E1700DA3A97 /* LoginVM.swift */; };
 		D289F64028C5C65800964C61 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D289F63F28C5C65800964C61 /* MainView.swift */; };
+		D2ABB24228DAF3460037C8C7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ABB24128DAF3460037C8C7 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D282B57928D30E1700DA3A97 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		D289F63F28C5C65800964C61 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D289F64128C5D44800964C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D2ABB24128DAF3460037C8C7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D2309F7A28BF2F33000EFAAA /* WalletConnect.swift */,
 				D2309F7C28BF422A000EFAAA /* HandShakeView.swift */,
 				D289F63F28C5C65800964C61 /* MainView.swift */,
+				D2ABB24128DAF3460037C8C7 /* Utils.swift */,
 				D26E75FB28BEE55300B44465 /* Assets.xcassets */,
 				D26E75FD28BEE55300B44465 /* Preview Content */,
 			);
@@ -282,6 +285,7 @@
 				D2309F7D28BF422A000EFAAA /* HandShakeView.swift in Sources */,
 				D26E75FA28BEE55100B44465 /* LoginView.swift in Sources */,
 				D282B57A28D30E1700DA3A97 /* LoginVM.swift in Sources */,
+				D2ABB24228DAF3460037C8C7 /* Utils.swift in Sources */,
 				D26E75F828BEE55100B44465 /* WalletHwangApp.swift in Sources */,
 				D289F64028C5C65800964C61 /* MainView.swift in Sources */,
 				D2309F7B28BF2F33000EFAAA /* WalletConnect.swift in Sources */,
